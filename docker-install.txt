@@ -3,6 +3,6 @@ docker run -d \
   --privileged \
   --restart=unless-stopped \
   -e TZ=America/Boise \
-  -v /home/jay/homeassistant:/config \
+  -v secrets.ha_dir \
   --network=host \
   ghcr.io/home-assistant/home-assistant:stable
