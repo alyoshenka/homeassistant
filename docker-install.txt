@@ -1,0 +1,8 @@
+docker run -d \
+  --name homeassistant \
+  --privileged \
+  --restart=unless-stopped \
+  -e TZ=America/Boise \
+  -v /home/jay/homeassistant:/config \
+  --network=host \
+  ghcr.io/home-assistant/home-assistant:stable

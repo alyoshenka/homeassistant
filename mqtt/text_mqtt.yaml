@@ -1,0 +1,3 @@
+- name: "Update Text"
+  command_topic: "hass/neopolitan/cmd/run"
+  command_template: '{ "operation": "update", "options": { "say": "{{ value }}" } }' 

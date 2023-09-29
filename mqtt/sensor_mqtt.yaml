@@ -1,0 +1,7 @@
+- name: "Alexi Mood"
+  state_topic: "hass/alexi/mood"
+- name: "Lottery"
+  state_topic: "hass/lottery/number"
+  unit_of_measurement: "No."
+- name: "Neopolitan State"
+  state_topic: "hass/neopolitan/dt/state"

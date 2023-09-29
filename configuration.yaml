@@ -1,0 +1,53 @@
+
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+automation default: !include automations.yaml
+automation: !include_dir_list appdaemon/apps/test1/
+# Include all script files from the 'scripts/' directory
+script: !include_dir_list scripts/ 
+script default: !include scripts.yaml
+scene: !include scenes.yaml
+
+
+# Don't know how much of this is actually necessary
+mqtt:
+  sensor: !include mqtt/sensor_mqtt.yaml
+  button: !include mqtt/button_mqtt.yaml
+  text: !include mqtt/text_mqtt.yaml
+
+# Shell command to start mqtt_playground
+shell_command:
+  mqtt_playground: /bin/python3 /home/jay/Desktop/Projects/mqtt_playground/main.py
+
+python_script:
+
+logger:
+  default: info
+  logs:
+    # Log anything from this python script
+    homeassistant.components.python_script.hello_world.py: debug 
+
+# Neopolitan Speed Slider
+input_number:
+  scroll_speed:
+    name: "Scroll Speed"
+    min: 0
+    max: 0.95
+    step: 0.05
+
+# Shows how to reference a secret credential
+# Stored in 'secrets.yaml' by convention, but other filenames
+#   work too, as shown here.
+#auth_providers:
+#  - type: legacy_api_password
+#    api_password: !secret my_secret_credential
+

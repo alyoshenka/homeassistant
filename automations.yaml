@@ -1,0 +1,69 @@
+- id: '1681962909506'
+  alias: Wake Me Up (inside)
+  description: ''
+  trigger:
+  - platform: time
+    at: 05:00:00
+  condition: []
+  action:
+  - service: script.many_flow
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 20
+      seconds: 0
+      milliseconds: 0
+  - service: scene.turn_on
+    target:
+      entity_id: scene.wake
+    metadata: {}
+  mode: single
+- alias: Scroll Speed Changed
+  trigger:
+    platform: state
+    entity_id: input_number.scroll_speed
+  action:
+    service: mqtt.publish
+    data:
+      topic: hass/neopolitan/cmd/run
+      retain: 'false'
+      payload: '{ "operation": "update", "options": { "speed": {{ 1 - (states("input_number.scroll_speed")
+        | float) }} } }'
+  id: 79e647eca6db472da93d35a5ab6700cb
+- alias: Set Scroll Speed Slider
+  trigger:
+    platform: mqtt
+    topic: hass/neopolitan/dt/scrollSpeed
+  action:
+    service: input_number.set_value
+    target:
+      entity_id: input_number.scroll_speed
+    data:
+      value: '{{ 1 - (trigger.payload | float) }}'
+  id: 9a865e9c72a14730be44d75157d4830a
+- id: '1695577605673'
+  alias: Display Stocks at 6am
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:00:00
+  condition: []
+  action:
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.neopstocks_default
+  mode: single
+- id: '1695577676456'
+  alias: Close Display at 6pm
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00:00'
+  condition: []
+  action:
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.close_neopolitan
+  mode: single

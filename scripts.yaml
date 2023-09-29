@@ -1,0 +1,28 @@
+test_flow:
+  alias: increment_lights
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness_step_pct: 5
+      color_temp: 500
+    target:
+      device_id:
+      - cb3a0da102e68c06dfba2102d4e192d1
+      - 9210288e5fbd673b14cd079552328c2c
+  mode: single
+  icon: mdi:ceiling-light
+many_flow:
+  alias: slide_on_lights
+  sequence:
+  - repeat:
+      count: '20'
+      sequence:
+      - service: script.test_flow
+        data: {}
+      - delay:
+          hours: 0
+          minutes: 1
+          seconds: 0
+          milliseconds: 0
+  mode: single
+  icon: mdi:ceiling-light-multiple

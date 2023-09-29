@@ -14,4 +14,4 @@ ip_bans.yaml
 known_devices.yaml
 
 *.db
-*.log
+*.log*

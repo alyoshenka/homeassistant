@@ -1,0 +1,54 @@
+- name: "Update Board"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "update", "options": { } }'
+- name: "Speed Slow"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "update", "options": { "speed": "slow" } }'
+- name: "Speed Medium"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "update", "options": { "speed": "medium" } }'
+- name: "Speed Fast"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "update", "options": { "speed": "fast" } }'
+- name: "Wrap On"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "update", "options": { "wrap": "True" } }'
+- name: "Wrap Off"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "update", "options": { "wrap": "False" } }'
+- name: "Run Color Demo"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "colorDemo" }'
+- name: "Clear Board"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "close" }'
+- name: "Test Board Runner"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "test" }'
+- name: "Open Default Display"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "open" }'
+- name: "Display All Symbols"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "displayAll" }'
+- name: "Display All Lowercase"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "displayAllLowercase" }'
+- name: "Display All Uppercase"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "displayAllUppercase" }'
+- name: "Display All Numbers"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "displayAllNumbers" }'
+- name: "Display All Symbols"
+  command_topic: "hass/neopolitan/cmd/run"
+  payload_press: '{ "operation": "displayAllSymbols" }'
+- name: "Default Stocks"             
+  command_topic: "hass/neopolitan/cmd/run"                                 
+  payload_press: '{ "operation": "stockTicker" }'
+- name: "SNP"             
+  command_topic: "hass/neopolitan/cmd/run"                                 
+  payload_press: '{ "operation": "stockTickerSNP" }'
+- name: "NASDAQ"             
+  command_topic: "hass/neopolitan/cmd/run"                                 
+  payload_press: '{ "operation": "stockTickerNASDAQ" }'
