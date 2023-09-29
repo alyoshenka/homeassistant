@@ -1,1 +1,16 @@
-fdsas
+# Include all files
+!*.yaml
+!.gitignore
+!*.md
+
+# Ignore all folders
+.storage
+.cloud
+.google.token
+
+# Ignore all files
+ip_bans.yaml
+*secrets*.yaml
+known_devices.yaml
+
+*.db
