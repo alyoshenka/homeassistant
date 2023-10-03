@@ -67,3 +67,19 @@
     target:
       entity_id: input_button.close_neopolitan
   mode: single
+- id: '1696107669488'
+  alias: Ping Notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.ping
+  condition: []
+  action:
+  - service: notify.mobile_app_pixel_3a
+    data:
+      message: Ping!
+      data:
+        notification_icon: mdi:snowflake
+        clickAction: /lovelace/device-trackers
+  mode: single
