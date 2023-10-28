@@ -83,3 +83,49 @@
         notification_icon: mdi:snowflake
         clickAction: /lovelace/device-trackers
   mode: single
+- id: '1698080677263'
+  alias: Alexi Stays Updated
+  description: Generate weather report, then cycle through stocks
+  trigger:
+  - platform: time
+    at: 06:00:00
+  condition: []
+  action:
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.generate_snow_report
+  - wait_for_trigger:
+    - platform: time
+      at: 06:30:00
+  - service: input_boolean.turn_on
+    data: {}
+    target:
+      entity_id: input_boolean.shuffle_tickers
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.neopstocks_default
+  - wait_for_trigger:
+    - platform: time
+      at: 07:00:00
+    continue_on_timeout: true
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.neopstocks_nasdaq
+  - wait_for_trigger:
+    - platform: time
+      at: 07:30:00
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.neopstocks_snp
+  - wait_for_trigger:
+    - platform: time
+      at: 08:00:00
+  - service: input_button.press
+    data: {}
+    target:
+      entity_id: input_button.neopstocks_default
+  mode: single
